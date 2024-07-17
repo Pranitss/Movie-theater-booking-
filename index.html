@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Seat Selection</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        #Username {
+            border: none;
+            border-bottom: 1px solid;
+        }
+        .screen {
+            width: 100%;
+            height: 20px;
+            background: #0d0e0f;
+            color: #fff;
+            line-height: 20px;
+            font-size: 15px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .smallBox {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin: 5px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 20px;
+        }
+        .greenBox {
+            background-color: green;
+        }
+        .redBox {
+            background-color: red;
+        }
+        .emptyBox {
+            background-color: #ccc;
+        }
+        .seats {
+            display: none;
+        }
+        .seat-label {
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .seat-label input[type="checkbox"] {
+            display: none;
+        }
+        .seat-label .seat {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 12px;
+            box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.3), 0px 1px 0px 0px rgba(255, 255, 255, 0.8);
+        }
+        .seat-label input[type="checkbox"]:checked + .seat {
+            background-color: green;
+            color: white;
+        }
+        .action-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .legend {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div>
+            <h2>Seat Selection</h2>
+             <br>
+            <label for="Username">Username:</label>
+            <input type="text" id="Username" placeholder="Enter your username">
+            <br>
+            <br>
+        </div>
+        
+        <table>
+            <tr>
+                <td colspan="14">
+                    <div class="screen">SCREEN</div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td></td>
+                <td></td>
+                <td></td>               
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>A</td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A1"><span class="seat">A1</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A2"><span class="seat">A2</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A3"><span class="seat">A3</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A4"><span class="seat">A4</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A5"><span class="seat">A5</span></label></td>
+                <td class="seatGap"></td>
+                <td></td>
+
+                <td class="seatGap"></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A6"><span class="seat">A6</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A7"><span class="seat">A7</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A8"><span class="seat">A8</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A9"><span class="seat">A9</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A10"><span class="seat">A10</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A11"><span class="seat">A11</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="A12"><span class="seat">A12</span></label></td>
+            </tr>
+
+            <tr>
+                <td>B</td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B1"><span class="seat">B1</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B2"><span class="seat">B2</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B3"><span class="seat">B3</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B4"><span class="seat">B4</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B5"><span class="seat">B5</span></label></td>
+                <td class="seatGap"></td>
+                <td class="seatGap"></td>
+
+                <td class="seatGap"></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B6"><span class="seat">B6</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B7"><span class="seat">B7</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B8"><span class="seat">B8</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B9"><span class="seat">B9</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B10"><span class="seat">B10</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B11"><span class="seat">B11</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="B12"><span class="seat">B12</span></label></td>
+            </tr>
+            <tr class="seatVGap"></tr>
+
+            <tr>
+                <td>C</td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C1"><span class="seat">C1</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C2"><span class="seat">C2</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C3"><span class="seat">C3</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C4"><span class="seat">C4</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C5"><span class="seat">C5</span></label></td>
+                <td class="seatGap"></td>
+            
+                <td><label class="seat-label"><input type="checkbox" class="seats" value=" "><span class="seat">  </span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value=" "><span class="seat">  </span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C6"><span class="seat">C6</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C7"><span class="seat">C7</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C8"><span class="seat">C8</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C9"><span class="seat">C9</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C10"><span class="seat">C10</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C11"><span class="seat">C11</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="C12"><span class="seat">C12</span></label></td>
+            </tr>
+            <!-- Continue similarly for D to J -->
+            <tr>
+                <td>D</td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D1"><span class="seat">D1</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D2"><span class="seat">D2</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D3"><span class="seat">D3</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D4"><span class="seat">D4</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D5"><span class="seat">D5</span></label></td>
+                <td class="seatGap"></td>
+                <td class="seatGap"></td>
+                <td class="seatGap"></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D6"><span class="seat">D6</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D7"><span class="seat">D7</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D8"><span class="seat">D8</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D9"><span class="seat">D9</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D10"><span class="seat">D10</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D11"><span class="seat">D11</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="D12"><span class="seat">D12</span></label></td>
+            </tr>
+            <tr>
+                <td>E</td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E1"><span class="seat">E1</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E2"><span class="seat">E2</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E3"><span class="seat">E3</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E4"><span class="seat">E4</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E5"><span class="seat">E5</span></label></td>
+                <td class="seatGap"></td>
+                <td class="seatGap"></td>
+                <td class="seatGap"></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E6"><span class="seat">E6</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E7"><span class="seat">E7</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E8"><span class="seat">E8</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E9"><span class="seat">E9</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E10"><span class="seat">E10</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E11"><span class="seat">E11</span></label></td>
+                <td><label class="seat-label"><input type="checkbox" class="seats" value="E12"><span class="seat">E12</span></label></td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
+
+        <div class="legend">
+            <div class="smallBox greenBox"></div> Selected Seat
+            <div class="smallBox redBox"></div> Reserved Seat
+            <div class="smallBox emptyBox"></div> Empty Seat
+        </div>
+
+        <br>
+        <button class="action-button" onclick="confirmSelection()">Confirm Selection</button>
+
+        <div class="displayerBoxes" style="display:none;">
+            <table class="Displaytable">
+                <tr>
+                    <th>Name</th>
+                    <th>Number of Seats</th>
+                    <th>Seats</th>
+                </tr>
+                <tr>
+                    <td><textarea id="nameDisplay" readonly></textarea></td>
+                    <td><textarea id="NumberDisplay" readonly></textarea></td>
+                    <td><textarea id="seatsDisplay" readonly></textarea></td>
+                </tr>
+            </table>
+        </div>
+    </center>
+
+    <script>
+        function confirmSelection() {
+            const name = document.getElementById('Username').value;
+            const selectedCheckboxes = document.querySelectorAll('.seats:checked');
+            
+            if (name.trim() === '') {
+                alert('Please enter your username.');
+                return;
+            }
+
+            if (selectedCheckboxes.length === 0) {
+                alert('Please select at least one seat.');
+                return;
+            }
+
+            const numSeats = selectedCheckboxes.length;
+            const selectedSeats = Array.from(selectedCheckboxes).map(checkbox => checkbox.value);
+
+            document.getElementById('nameDisplay').value = name;
+            document.getElementById('NumberDisplay').value = numSeats;
+            document.getElementById('seatsDisplay').value = selectedSeats.join(', ');
+
+            selectedCheckboxes.forEach(checkbox => {
+                checkbox.closest('.seat-label').querySelector('.seat').style.backgroundColor = 'red'; // Mark as reserved
+                checkbox.disabled = true;
+            });
+
+            document.querySelector('.displayerBoxes').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

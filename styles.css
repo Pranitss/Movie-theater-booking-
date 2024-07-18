@@ -24,7 +24,7 @@ table {
 th, td {
     padding: 8px;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid rgb(21, 18, 18);
 }
 
 .seatGap {

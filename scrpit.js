@@ -72,6 +72,7 @@ function confirmSelection() {
     selectedSeats.forEach(seat => {
         const checkbox = document.querySelector(`input[value="${seat}"]`);
         checkbox.disabled = true;
+        
         checkbox.checked = false;
     });
 
